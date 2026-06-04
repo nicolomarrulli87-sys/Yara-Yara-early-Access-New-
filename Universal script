@@ -126,7 +126,8 @@ OpenButton.MouseButton1Click:Connect(function()
 end)
 
 local toggled = false
-local args = { 1 }
+-- Changed from { 1 } to { 25 } to pass the new value
+local args = { 25 }
 
 AutoNicoButton.MouseButton1Click:Connect(function()
 	toggled = not toggled
@@ -145,3 +146,4 @@ AutoNicoButton.MouseButton1Click:Connect(function()
 		ButtonStroke.Color = Color3.fromRGB(220, 225, 235)
 	end
 end)
+
