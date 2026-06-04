@@ -1,0 +1,147 @@
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Corner = Instance.new("UICorner")
+local Stroke = Instance.new("UIStroke")
+local Shadow = Instance.new("ImageLabel")
+local Title = Instance.new("TextLabel")
+local Subtitle = Instance.new("TextLabel")
+local AutoNicoButton = Instance.new("TextButton")
+local ButtonCorner = Instance.new("UICorner")
+local ButtonStroke = Instance.new("UIStroke")
+local CloseButton = Instance.new("TextButton")
+local OpenGui = Instance.new("ScreenGui")
+local OpenButton = Instance.new("TextButton")
+local OpenCorner = Instance.new("UICorner")
+local OpenStroke = Instance.new("UIStroke")
+
+ScreenGui.Name = "YaraEarlyAccess"
+ScreenGui.Parent = game:GetService("CoreGui")
+ScreenGui.ResetOnSpawn = false
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainFrame.Position = UDim2.new(0.5, -135, 0.5, -110)
+MainFrame.Size = UDim2.new(0, 270, 0, 220)
+MainFrame.Active = true
+MainFrame.Draggable = true
+
+Corner.CornerRadius = UDim.new(0, 16)
+Corner.Parent = MainFrame
+
+Stroke.Color = Color3.fromRGB(230, 230, 235)
+Stroke.Thickness = 2
+Stroke.Parent = MainFrame
+
+Shadow.Name = "Shadow"
+Shadow.Parent = MainFrame
+Shadow.BackgroundTransparency = 1
+Shadow.Position = UDim2.new(0, -15, 0, -15)
+Shadow.Size = UDim2.new(1, 30, 1, 30)
+Shadow.Image = "rbxassetid://6014261993"
+Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+Shadow.ImageTransparency = 0.85
+Shadow.ScaleType = Enum.ScaleType.Slice
+Shadow.SliceCenter = Rect.new(49, 49, 450, 450)
+
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundTransparency = 1
+Title.Position = UDim2.new(0, 20, 0, 20)
+Title.Size = UDim2.new(0, 200, 0, 25)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "Yara Early Access"
+Title.TextColor3 = Color3.fromRGB(25, 25, 30)
+Title.TextSize = 22
+Title.TextXAlignment = Enum.TextXAlignment.Left
+
+Subtitle.Name = "Subtitle"
+Subtitle.Parent = MainFrame
+Subtitle.BackgroundTransparency = 1
+Subtitle.Position = UDim2.new(0, 20, 0, 45)
+Subtitle.Size = UDim2.new(0, 200, 0, 18)
+Subtitle.Font = Enum.Font.GothamSemibold
+Subtitle.Text = "by nico"
+Subtitle.TextColor3 = Color3.fromRGB(140, 145, 155)
+Subtitle.TextSize = 14
+Subtitle.TextXAlignment = Enum.TextXAlignment.Left
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = MainFrame
+CloseButton.BackgroundTransparency = 1
+CloseButton.Position = UDim2.new(1, -40, 0, 15)
+CloseButton.Size = UDim2.new(0, 25, 0, 25)
+CloseButton.Font = Enum.Font.GothamBold
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.fromRGB(180, 185, 195)
+CloseButton.TextSize = 16
+
+AutoNicoButton.Name = "AutoNicoButton"
+AutoNicoButton.Parent = MainFrame
+AutoNicoButton.BackgroundColor3 = Color3.fromRGB(245, 246, 248)
+AutoNicoButton.Position = UDim2.new(0.07, 0, 0.45, 0)
+AutoNicoButton.Size = UDim2.new(0.86, 0, 0, 52)
+AutoNicoButton.Font = Enum.Font.GothamBold
+AutoNicoButton.Text = "auto nico made by Nico"
+AutoNicoButton.TextColor3 = Color3.fromRGB(40, 45, 55)
+AutoNicoButton.TextSize = 14
+
+ButtonCorner.CornerRadius = UDim.new(0, 12)
+ButtonCorner.Parent = AutoNicoButton
+
+ButtonStroke.Color = Color3.fromRGB(220, 225, 235)
+ButtonStroke.Thickness = 1.5
+ButtonStroke.Parent = AutoNicoButton
+
+OpenGui.Name = "YaraOpenGui"
+OpenGui.Parent = game:GetService("CoreGui")
+OpenGui.ResetOnSpawn = false
+
+OpenButton.Name = "OpenButton"
+OpenButton.Parent = OpenGui
+OpenButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+OpenButton.Position = UDim2.new(0, 20, 0.5, -20)
+OpenButton.Size = UDim2.new(0, 50, 0, 50)
+OpenButton.Font = Enum.Font.GothamBold
+OpenButton.Text = "Y"
+OpenButton.TextColor3 = Color3.fromRGB(25, 25, 30)
+OpenButton.TextSize = 18
+OpenButton.Visible = false
+
+OpenCorner.CornerRadius = UDim.new(0, 12)
+OpenCorner.Parent = OpenButton
+
+OpenStroke.Color = Color3.fromRGB(230, 230, 235)
+OpenStroke.Thickness = 2
+OpenStroke.Parent = OpenButton
+
+CloseButton.MouseButton1Click:Connect(function()
+	MainFrame.Visible = false
+	OpenButton.Visible = true
+end)
+
+OpenButton.MouseButton1Click:Connect(function()
+	MainFrame.Visible = true
+	OpenButton.Visible = false
+end)
+
+local toggled = false
+local args = { 1 }
+
+AutoNicoButton.MouseButton1Click:Connect(function()
+	toggled = not toggled
+	if toggled then
+		AutoNicoButton.BackgroundColor3 = Color3.fromRGB(255, 75, 75)
+		AutoNicoButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+		ButtonStroke.Color = Color3.fromRGB(235, 50, 50)
+		
+		while toggled do
+			game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("ClickBrainrot"):FireServer(unpack(args))
+			task.wait(0.001)
+		end
+	else
+		AutoNicoButton.BackgroundColor3 = Color3.fromRGB(245, 246, 248)
+		AutoNicoButton.TextColor3 = Color3.fromRGB(40, 45, 55)
+		ButtonStroke.Color = Color3.fromRGB(220, 225, 235)
+	end
+end)
