@@ -48,11 +48,11 @@ Title.Name = "Title"
 Title.Parent = MainFrame
 Title.BackgroundTransparency = 1
 Title.Position = UDim2.new(0, 20, 0, 20)
-Title.Size = UDim2.new(0, 200, 0, 25)
+Title.Size = UDim2.new(0, 230, 0, 25) -- Aumentata leggermente la larghezza per far entrare il nuovo titolo
 Title.Font = Enum.Font.GothamBold
-Title.Text = "Yara Early Access"
+Title.Text = "yara early Access (updated)" -- Titolo modificato
 Title.TextColor3 = Color3.fromRGB(25, 25, 30)
-Title.TextSize = 22
+Title.TextSize = 20 -- Ridotto leggermente il font per evitare che si tagli
 Title.TextXAlignment = Enum.TextXAlignment.Left
 
 Subtitle.Name = "Subtitle"
@@ -82,7 +82,7 @@ AutoNicoButton.BackgroundColor3 = Color3.fromRGB(245, 246, 248)
 AutoNicoButton.Position = UDim2.new(0.07, 0, 0.45, 0)
 AutoNicoButton.Size = UDim2.new(0.86, 0, 0, 52)
 AutoNicoButton.Font = Enum.Font.GothamBold
-AutoNicoButton.Text = "auto nico made by Nico"
+AutoNicoButton.Text = "auto click by nico" -- Testo del pulsante modificato
 AutoNicoButton.TextColor3 = Color3.fromRGB(40, 45, 55)
 AutoNicoButton.TextSize = 14
 
@@ -126,7 +126,6 @@ OpenButton.MouseButton1Click:Connect(function()
 end)
 
 local toggled = false
--- Changed from { 1 } to { 25 } to pass the new value
 local args = { 25 }
 
 AutoNicoButton.MouseButton1Click:Connect(function()
@@ -146,4 +145,5 @@ AutoNicoButton.MouseButton1Click:Connect(function()
 		ButtonStroke.Color = Color3.fromRGB(220, 225, 235)
 	end
 end)
+
 
